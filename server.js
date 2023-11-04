@@ -11,11 +11,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //serve static
-//app.use('/public', express.static('Public'));
+app.use('/public', express.static('Public'));
 
 //handle route
 app.get('/', (req, res) => {
     res.status(200).send("hello world");
 });
+
+const userRouter = require('./routes/userRoutes');
+app.use('/api', userRouter)
 
 app.listen(PORT, () => { console.log(`server connect at ${PORT}`) });
