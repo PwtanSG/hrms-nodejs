@@ -3,8 +3,9 @@ const userController = require('../controllers/userController');
 const router = require('express').Router();
 
 router.get('/', function (req, res) {
-    res.send('Hello World1')
+    res.send('users World1')
 })
-// router.get('/users', userController);
+
+router.get('/all', userController.getUsers);
 
 module.exports = router;

@@ -18,7 +18,9 @@ app.get('/', (req, res) => {
     res.status(200).send("hello world");
 });
 
+const employeeRouter = require('./routes/employeeRoutes');
 const userRouter = require('./routes/userRoutes');
-app.use('/api', userRouter)
+app.use('/api/users', userRouter)
+app.use('/api/employees', employeeRouter)
 
 app.listen(PORT, () => { console.log(`server connect at ${PORT}`) });
